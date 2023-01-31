@@ -8,7 +8,6 @@ Before beginning work on the server and client projects, ensure the following so
 
 * [`git`](https://git-scm.com/downloads)
 * [`Node.js`](https://nodejs.org/en/)
-* [`JavaScript`](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [`Visual Studio Code`](https://code.visualstudio.com/)
 * Compatible versions of [`Visual Studio 2022`](https://visualstudio.microsoft.com/downloads/ ) and [`.NET Core SDK 6.0`](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) or later installed on your machine
 
