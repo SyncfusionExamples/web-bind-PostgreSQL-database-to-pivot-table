@@ -17,7 +17,7 @@ namespace PivotController.Controllers
 
         public dynamic GetPostgreSQLResult()
         {
-            NpgsqlConnection connection = new NpgsqlConnection("Server=172.16.200.86;Port=5432;User Id=postgres;Password=coolcomp@123;Database=postgres;");
+            NpgsqlConnection connection = new NpgsqlConnection("<Enter your valid connection string here>");
             connection.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM apxtimestamp", connection);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
