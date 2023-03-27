@@ -1,0 +1,63 @@
+﻿@page "/"
+
+@using System.Data
+@using Npgsql
+@using Syncfusion.Blazor.PivotView
+
+<SfPivotView TValue="PostgreSQLService" Width="1000" Height="300" ShowFieldList="true">
+    <PivotViewDataSourceSettings TValue="PostgreSQLService" DataSource="@dataSource" ExpandAll=false EnableSorting=true>
+        <PivotViewColumns>
+            <PivotViewColumn Name="openinghours_practice" Caption="Openinghours Practice"></PivotViewColumn>
+            <PivotViewColumn Name="closinghours_practice" Caption="Closinghours Practice"></PivotViewColumn>
+        </PivotViewColumns>
+        <PivotViewRows>
+            <PivotViewRow Name="servicetype" Caption="Service Type"></PivotViewRow>
+            <PivotViewRow Name="servicecategory" Caption="Service Category"></PivotViewRow>
+        </PivotViewRows>
+        <PivotViewValues>
+            <PivotViewValue Name="revenue" Caption="Revenue"></PivotViewValue>
+        </PivotViewValues>
+        <PivotViewFormatSettings>
+            <PivotViewFormatSetting Name="revenue" Format="C0"></PivotViewFormatSetting>
+        </PivotViewFormatSettings>
+    </PivotViewDataSourceSettings>
+    <PivotViewGridSettings ColumnWidth="120"></PivotViewGridSettings>
+</SfPivotView>
+
+@code {
+    private List<PostgreSQLService> dataSource { get; set; }
+
+    protected override void OnInitialized()
+    {
+        List<PostgreSQLService> postGreSqlData = new List<PostgreSQLService>();
+        // Replace with your own connection string.
+        NpgsqlConnection connection = new NpgsqlConnection("<Enter your valid connection string here>");
+        connection.Open();
+        NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM apxtimestamp", connection);
+        using (NpgsqlDataReader reader = cmd.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                postGreSqlData.Add(new PostgreSQLService()
+                {
+                    openinghours_practice = (TimeSpan)reader["openinghours_practice"],
+                    closinghours_practice = (TimeSpan)reader["closinghours_practice"],
+                    servicetype = reader["servicetype"].ToString(),
+                    servicecategory = reader["servicecategory"].ToString(),
+                    revenue = Convert.ToInt32(reader["revenue"])
+                });
+            }
+        }
+        connection.Close();   
+        this.dataSource = postGreSqlData;
+    }
+
+    public class PostgreSQLService
+    {
+        public TimeSpan openinghours_practice { get; set; }
+        public TimeSpan closinghours_practice { get; set; }
+        public string servicetype { get; set; }
+        public string servicecategory { get; set; }
+        public int revenue { get; set; }
+    }
+}
