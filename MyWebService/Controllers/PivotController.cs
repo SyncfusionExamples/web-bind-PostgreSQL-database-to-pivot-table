@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Data;
 using Npgsql;
 
-namespace PivotController.Controllers
+namespace MyWebService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -15,16 +15,16 @@ namespace PivotController.Controllers
             return JsonConvert.SerializeObject(GetPostgreSQLResult());
         }
 
-        public dynamic GetPostgreSQLResult()
+        private dynamic GetPostgreSQLResult()
         {
             NpgsqlConnection connection = new NpgsqlConnection("<Enter your valid connection string here>");
             connection.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM apxtimestamp", connection);
-            NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+            NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM apxtimestamp", connection);
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
             connection.Close();
-            return dt;
+            return dataTable;
         }
     }
 }

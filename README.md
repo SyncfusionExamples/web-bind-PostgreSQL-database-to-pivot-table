@@ -1,2 +1,3 @@
-# how-to-bind-PostgreSQL-database-to-pivot-table
-A quick start project that shows how to bind PostgreSQL database to the Syncfusion pivot table.
+# How to bind PostgreSQL database to a Pivot Table
+
+A quick start project for connecting a PostgreSQL database to a Syncfusion Pivot Table. This repository includes a Web API Controller ([MyWebService](./MyWebService/)) for retrieving data from a PostgreSQL database, as well as a quick start samples in the [TypeScript](./Typescript/) and [JavaScript](./Javascript/) platforms that display the retrieved data in a Syncfusion Pivot Table.
