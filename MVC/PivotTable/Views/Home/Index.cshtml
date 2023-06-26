@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@Html.EJS().PivotView("PivotView").Height("300").DataSourceSettings(
+        dataSource => dataSource.Url("https://localhost:44378/Pivot"
+        ).ExpandAll(false).EnableSorting(true)
+    .Rows(rows =>
+    {
+        rows.Name("servicetype").Caption("Service Type").Add(); rows.Name("servicecategory").Caption("Service Category").Add();
+    }).Columns(columns =>
+    {
+        columns.Name("openinghours_practice").Caption("Openinghours Practice").Add(); 
+        columns.Name("closinghours_practice").Caption("Closinghours Practice").Add();
+    }).Values(values =>
+    {
+        values.Name("revenue").Caption("Revenue").Add();
+    })).ShowFieldList(true).Render()
