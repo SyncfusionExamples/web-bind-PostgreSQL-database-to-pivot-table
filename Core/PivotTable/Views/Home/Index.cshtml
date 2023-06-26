@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ejs-pivotview id="PivotView" height="300" showFieldList="true">
+    <e-datasourcesettings Url="https://localhost:44378/Pivot" expandAll="false" enableSorting="true">
+        <e-rows>
+            <e-field name="servicetype" caption="Service Type"></e-field>
+            <e-field name="servicecategory" caption="Service Category"></e-field>
+        </e-rows>
+        <e-columns>
+            <e-field name="openinghours_practice" caption="Openinghours Practice"></e-field>
+            <e-field name="closinghours_practice" caption="Closinghours Practice"></e-field>
+        </e-columns>
+        <e-values>
+            <e-field name="revenue" caption="Revenue"></e-field>
+        </e-values>
+    </e-datasourcesettings>
+</ejs-pivotview>
