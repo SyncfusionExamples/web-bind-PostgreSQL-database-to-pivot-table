@@ -14,7 +14,7 @@ Before beginning work on the server and client projects, ensure the following so
 
 ## How to run this application?
 
-* To run this application, clone the [how-to-bind-PostgreSQL-database-to-pivot-table](https://github.com/SyncfusionExamples/how-to-bind-PostgreSQL-database-to-pivot-table) repository and then open **MyWebService** in Visual Studio 2022. Simply build and run your project in IIS Express, and it will host and display the URL `https://localhost:7238`.
+* To run this application, clone the [how-to-bind-PostgreSQL-database-to-pivot-table](https://github.com/SyncfusionExamples/how-to-bind-PostgreSQL-database-to-pivot-table) repository and then open **MyWebService** in Visual Studio 2022. Simply build and run your project in IIS Express, and it will host and display the URL `https://localhost:44378`.
 
 *  Now open TypeScript sample in Visual Studio Code and and install the necessary npm packages using the following command.
 

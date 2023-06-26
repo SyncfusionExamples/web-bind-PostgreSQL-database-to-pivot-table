@@ -2,7 +2,7 @@ import { PivotView,FieldList} from '@syncfusion/ej2-pivotview';
 PivotView.Inject(FieldList);
 let pivotTableObj: PivotView = new PivotView({
 dataSourceSettings: {
-  url: 'https://localhost:7238/Pivot',
+  url: 'https://localhost:44378/Pivot',
   enableSorting: true,
   columns: [{ name: 'openinghours_practice', caption: 'Openinghours Practice' }, { name: 'closinghours_practice', caption: 'Closinghours Practice' }],
   values: [{ name: 'revenue', caption: 'Revenue' }],
